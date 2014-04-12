@@ -51,8 +51,8 @@ static NSDictionary* xl3Ops;
 	//basicSize	= NSMakeSize(485,290);
 	//compositeSize	= NSMakeSize(485,558);
     
-    basicSize	= NSMakeSize(510,690);
-	compositeSize	= NSMakeSize(510,690);
+    basicSize	= NSMakeSize(510,710);
+	compositeSize	= NSMakeSize(510,710);
     
 	blankView = [[NSView alloc] init];
 	[self tabView:tabView didSelectTabViewItem:[tabView selectedTabViewItem]];
