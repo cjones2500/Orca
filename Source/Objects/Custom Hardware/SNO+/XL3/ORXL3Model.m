@@ -20,6 +20,7 @@
 
 #pragma mark •••Imported Files
 #import "XL3_Link.h"
+#import "XL3_LinkController.h"
 #import "XL3_Cmds.h"
 #import "ORXL3Model.h"
 #import "ORSNOCrateModel.h"
@@ -844,7 +845,15 @@ snotDb = _snotDb;
     [[[self undoManager] prepareWithInvocationTarget:self] setRelayMask:relayMask];
     relayMask = aRelayMask;
     //NSLog(@"relay mask:0x%016x",relayMask);
-	[[NSNotificationCenter defaultCenter] postNotificationName:ORXL3ModelRelayMaskChanged object:self];        
+	[[NSNotificationCenter defaultCenter] postNotificationName:ORXL3ModelRelayMaskChanged object:self];
+    
+    //fetch the XL3_LinkController 
+    //NSArray*  objs = [[[NSApp delegate] document] collectObjectsOfClass:NSClassFromString(@"XL3_LinkController")];
+    //XL3_LinkController* theXL3_LinkController = [objs objectAtIndex:0];
+    
+    //Notify the XL3_LinkController that the relay Mask has been changed 
+    //[[NSNotificationCenter defaultCenter] postNotificationName:ORXL3ModelRelayMaskChanged object:self];
+    
 }
 
 - (NSString*) relayStatus

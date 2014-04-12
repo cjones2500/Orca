@@ -110,6 +110,7 @@
     IBOutlet NSTextField *hvRelayMaskHighField;
     IBOutlet NSTextField *hvRelayStatusField;
     IBOutlet NSMatrix *hvRelayMaskMatrix;
+    IBOutlet NSMatrix *hvNewLoadRelayMaskMatrix; //relayMaskToLoad added by Chris Jones 
     IBOutlet NSButton *hvRelayOpenButton;
     IBOutlet NSButton *hvRelayCloseButton;
     IBOutlet NSMatrix *hvPowerSupplyMatrix;
@@ -259,7 +260,7 @@
 //hv
 - (IBAction)hvRelayMaskHighAction:(id)sender;
 - (IBAction)hvRelayMaskLowAction:(id)sender;
-- (IBAction)hvRelayMaskMatrixAction:(id)sender;
+- (IBAction)hvLoadNewRelaysAction:(id)sender; //added by Chris Jones (hv mask to load)
 - (IBAction)hvRelaySetAction:(id)sender;
 - (IBAction)hvRelayOpenAllAction:(id)sender;
 - (IBAction)hvCheckInterlockAction:(id)sender;
@@ -285,5 +286,7 @@
 - (IBAction) toggleConnectAction:(id)sender;
 - (IBAction) errorTimeOutAction:(id)sender;
 - (IBAction) connectionAutoConnectAction:(id)sender;
+
+- (void)setHvRelayMaskMatrix;
 
 @end

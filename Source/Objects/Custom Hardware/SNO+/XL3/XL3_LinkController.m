@@ -51,8 +51,8 @@ static NSDictionary* xl3Ops;
 	//basicSize	= NSMakeSize(485,290);
 	//compositeSize	= NSMakeSize(485,558);
     
-    basicSize	= NSMakeSize(510,710);
-	compositeSize	= NSMakeSize(510,710);
+    basicSize	= NSMakeSize(510,800);
+	compositeSize	= NSMakeSize(510,800);
     
 	blankView = [[NSView alloc] init];
 	[self tabView:tabView didSelectTabViewItem:[tabView selectedTabViewItem]];
@@ -265,6 +265,12 @@ static NSDictionary* xl3Ops;
                      selector : @selector(hvRelayMaskChanged:)
                          name : ORXL3ModelRelayMaskChanged
                        object : model];
+    
+    [notifyCenter addObserver : self
+                     selector : @selector(hvRelayMaskChanged:)
+                         name : ORXL3ModelRelayMaskChanged
+                       object : self];
+    
 
     [notifyCenter addObserver : self
                      selector : @selector(hvStatusChanged:)
@@ -652,11 +658,13 @@ static NSDictionary* xl3Ops;
         [hvRelayCloseButton setEnabled:NO];
     }
     else {
-        [hvRelayMaskHighField setEnabled:YES];
-        [hvRelayMaskLowField setEnabled:YES];
-        [hvRelayMaskMatrix setEnabled:YES];
-        [hvRelayOpenButton setEnabled:YES];
-        [hvRelayCloseButton setEnabled:YES];        
+        //chris jones - set these equal to NO so the user is forced to load new settings 
+        [hvRelayMaskHighField setEnabled:NO];
+        [hvRelayMaskLowField setEnabled:NO];
+        [hvRelayMaskMatrix setEnabled:NO];
+        
+        [hvRelayOpenButton setEnabled:NO];
+        [hvRelayCloseButton setEnabled:NO];
     }
 }
 
@@ -1209,7 +1217,8 @@ static NSDictionary* xl3Ops;
     [model setRelayMask:newRelayMask];    
 }
 
-- (IBAction)hvRelayMaskMatrixAction:(id)sender
+//This function should do exactly the same as (IBAction)hvRelayMaskMatrixAction:(id)sender except it is called by clicking the set button and not whenever someone changes the relays 
+- (void)setHvRelayMaskMatrix
 {
     unsigned long long newRelayMask = 0ULL;
     unsigned char slot;
@@ -1217,16 +1226,38 @@ static NSDictionary* xl3Ops;
     for (slot = 0; slot<16; slot++) {
         for (pmtic=0; pmtic<4; pmtic++) {
             //NSLog(@"slot: %d, db: %d, value: %d\n",slot,pmtic,[[sender cellAtRow:(3-pmtic) column:(15-slot)] intValue]);
-            newRelayMask |= ([[sender cellAtRow:pmtic column:15-slot] intValue]?1ULL:0ULL) << (slot*4 + pmtic);
+            newRelayMask |= ([[hvRelayMaskMatrix cellAtRow:pmtic column:15-slot] intValue]?1ULL:0ULL) << (slot*4 + pmtic);
         }
     }
+    //actually go and change the relay mask in the Model 
     [model setRelayMask:newRelayMask];
+}
+
+
+-(IBAction)hvLoadNewRelaysAction:(id)sender
+{
+    //diable the input to the mask to be loaded
+    //[hvNewLoadRelayMaskMatrix setEnabled:NO];
+    [hvRelayCloseButton setEnabled:YES];
 }
 
 - (IBAction)hvRelaySetAction:(id)sender
 {
+    //use the currently loaded relay mask in the view 
+    //[hvRelayMaskMatrix setValue:hvNewLoadRelayMaskMatrix];
+    
+    hvRelayMaskMatrix = hvNewLoadRelayMaskMatrix;
+    
+    NSLog(@" after set hvRelayMaskMatrix %@\n",hvRelayMaskMatrix);
+    
+    
     [self endEditing];
+    //actually change the relay mask in the model
+    [self setHvRelayMaskMatrix];
+    
+    
     [model closeHVRelays];
+    [hvRelayCloseButton setEnabled:NO];
 }
 
 - (IBAction)hvRelayOpenAllAction:(id)sender
