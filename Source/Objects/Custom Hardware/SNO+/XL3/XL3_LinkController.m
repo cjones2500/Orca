@@ -265,12 +265,6 @@ static NSDictionary* xl3Ops;
                      selector : @selector(hvRelayMaskChanged:)
                          name : ORXL3ModelRelayMaskChanged
                        object : model];
-    
-    [notifyCenter addObserver : self
-                     selector : @selector(hvRelayMaskChanged:)
-                         name : ORXL3ModelRelayMaskChanged
-                       object : self];
-    
 
     [notifyCenter addObserver : self
                      selector : @selector(hvStatusChanged:)
@@ -1226,16 +1220,21 @@ static NSDictionary* xl3Ops;
     for (slot = 0; slot<16; slot++) {
         for (pmtic=0; pmtic<4; pmtic++) {
             //NSLog(@"slot: %d, db: %d, value: %d\n",slot,pmtic,[[sender cellAtRow:(3-pmtic) column:(15-slot)] intValue]);
-            newRelayMask |= ([[hvRelayMaskMatrix cellAtRow:pmtic column:15-slot] intValue]?1ULL:0ULL) << (slot*4 + pmtic);
+            newRelayMask |= ([[hvNewLoadRelayMaskMatrix cellAtRow:pmtic column:15-slot] intValue]?1ULL:0ULL) << (slot*4 + pmtic);
         }
     }
-    //actually go and change the relay mask in the Model 
+    
+    [self updateWindow];
+    //actually go and change the relay mask in the Model
     [model setRelayMask:newRelayMask];
+    
 }
+
 
 
 -(IBAction)hvLoadNewRelaysAction:(id)sender
 {
+    
     //diable the input to the mask to be loaded
     //[hvNewLoadRelayMaskMatrix setEnabled:NO];
     [hvRelayCloseButton setEnabled:YES];
@@ -1243,21 +1242,13 @@ static NSDictionary* xl3Ops;
 
 - (IBAction)hvRelaySetAction:(id)sender
 {
-    //use the currently loaded relay mask in the view 
-    //[hvRelayMaskMatrix setValue:hvNewLoadRelayMaskMatrix];
-    
-    hvRelayMaskMatrix = hvNewLoadRelayMaskMatrix;
-    
-    NSLog(@" after set hvRelayMaskMatrix %@\n",hvRelayMaskMatrix);
-    
-    
-    [self endEditing];
     //actually change the relay mask in the model
     [self setHvRelayMaskMatrix];
     
-    
-    [model closeHVRelays];
     [hvRelayCloseButton setEnabled:NO];
+    [self endEditing];
+    [model closeHVRelays];
+    
 }
 
 - (IBAction)hvRelayOpenAllAction:(id)sender

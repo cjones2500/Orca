@@ -847,13 +847,6 @@ snotDb = _snotDb;
     //NSLog(@"relay mask:0x%016x",relayMask);
 	[[NSNotificationCenter defaultCenter] postNotificationName:ORXL3ModelRelayMaskChanged object:self];
     
-    //fetch the XL3_LinkController 
-    //NSArray*  objs = [[[NSApp delegate] document] collectObjectsOfClass:NSClassFromString(@"XL3_LinkController")];
-    //XL3_LinkController* theXL3_LinkController = [objs objectAtIndex:0];
-    
-    //Notify the XL3_LinkController that the relay Mask has been changed 
-    //[[NSNotificationCenter defaultCenter] postNotificationName:ORXL3ModelRelayMaskChanged object:self];
-    
 }
 
 - (NSString*) relayStatus
