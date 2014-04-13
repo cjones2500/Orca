@@ -1011,15 +1011,39 @@ static NSDictionary* xl3Ops;
 	//[model setSlotMask:0];
 }
 
+- (IBAction) compositeSlotMaskLoadAction:(id)sender
+{
+    [compositeSlotMaskLoadButton setEnabled:NO];
+    [compositeSlotMaskSetButton setEnabled:YES];
+}
+
+- (IBAction) compositeSlotMaskSetAction:(id)sender
+{
+    [compositeSlotMaskLoadButton setEnabled:YES];
+    [compositeSlotMaskSetButton setEnabled:NO];
+    
+    [self endEditing];
+	unsigned long mask = 0;
+	int i;
+	for(i=0;i<16;i++){
+		if([[compositeSlotMaskMatrixToLoad cellWithTag:i] intValue]){
+			mask |= (1L << i);
+		}
+	}
+	[model setSlotMask:mask];
+}
+
 - (IBAction) compositeSlotMaskPresentAction:(id) sender
 {
-	NSArray* fecs = [[model guardian] collectObjectsOfClass:NSClassFromString(@"ORFec32Model")];
+    //Not sure why this was being used ????
+    //Maybe this pulls directly from the fecs if they are on or not
+    //Maybe this could be used to automatically mask in a slot or not ?
+	/*NSArray* fecs = [[model guardian] collectObjectsOfClass:NSClassFromString(@"ORFec32Model")];
 	unsigned int msk = 0UL;
 	for (id key in fecs) {
 		msk |= 1 << [key stationNumber];
-	}
-    
-    [self setSlotMaskToLoad:msk];
+	}*/
+    [self setSlotMaskToLoad:[model slotMask]];
 	//[model setSlotMask:msk];
 }
 
@@ -1029,6 +1053,7 @@ static NSDictionary* xl3Ops;
 	for(i=0; i<16; i++){
 		[[compositeSlotMaskMatrixToLoad cellWithTag:i] setIntValue:(mask & 1UL << i)];
 	}
+    //set the mask in the GUI
 	[compositeSlotMaskMatrixToLoad setIntValue:mask];
     
 }

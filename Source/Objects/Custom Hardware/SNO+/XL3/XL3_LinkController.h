@@ -50,6 +50,10 @@
 	IBOutlet NSMatrix*              compositeSlotMaskMatrix;
     IBOutlet NSMatrix*              compositeSlotMaskMatrixToLoad;
 	IBOutlet NSTextField*           compositeSlotMaskField;
+    
+    IBOutlet NSButton*              compositeSlotMaskLoadButton;
+    IBOutlet NSButton*              compositeSlotMaskSetButton;
+    
 	IBOutlet NSPopUpButton*         compositeXl3ModePU;
 	IBOutlet NSButton*              compositeSetXl3ModeButton;
 	IBOutlet NSProgressIndicator*	compositeXl3ModeRunningIndicator;
@@ -230,6 +234,8 @@
 - (IBAction) compositeSlotMaskSelectAction:(id)sender;
 - (IBAction) compositeSlotMaskDeselectAction:(id)sender;
 - (IBAction) compositeSlotMaskPresentAction:(id)sender;
+- (IBAction) compositeSlotMaskLoadAction:(id)sender;
+- (IBAction) compositeSlotMaskSetAction:(id)sender;
 - (IBAction) compositeXl3ModeAction:(id)sender;
 - (IBAction) compositeXl3ModeSetAction:(id)sender;
 - (IBAction) compositeXl3RWAddressValueAction:(id)sender;
