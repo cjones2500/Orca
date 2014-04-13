@@ -48,6 +48,7 @@
 	IBOutlet NSProgressIndicator*	deselectCompositeRunningIndicator;
 	IBOutlet NSButton*              compositeDeselectButton;
 	IBOutlet NSMatrix*              compositeSlotMaskMatrix;
+    IBOutlet NSMatrix*              compositeSlotMaskMatrixToLoad;
 	IBOutlet NSTextField*           compositeSlotMaskField;
 	IBOutlet NSPopUpButton*         compositeXl3ModePU;
 	IBOutlet NSButton*              compositeSetXl3ModeButton;
@@ -287,6 +288,7 @@
 - (IBAction) errorTimeOutAction:(id)sender;
 - (IBAction) connectionAutoConnectAction:(id)sender;
 
-- (void)setHvRelayMaskMatrix;
+- (void) setHvRelayMaskMatrix;
+- (void) setSlotMaskToLoad:(unsigned long)mask;
 
 @end

@@ -988,7 +988,7 @@ static NSDictionary* xl3Ops;
 			mask |= (1L << i);
 		}
 	}
-	[model setSlotMask:mask];	
+	[model setSlotMask:mask];
 }
 
 - (IBAction) compositeSlotMaskFieldAction:(id) sender
@@ -1001,12 +1001,14 @@ static NSDictionary* xl3Ops;
 
 - (IBAction) compositeSlotMaskSelectAction:(id) sender
 {
-	[model setSlotMask:0xffffUL];
+    [self setSlotMaskToLoad:0xFFFF];
+	//[model setSlotMask:0xffffUL];
 }
 
 - (IBAction) compositeSlotMaskDeselectAction:(id) sender
 {
-	[model setSlotMask:0UL];
+    [self setSlotMaskToLoad:0];
+	//[model setSlotMask:0];
 }
 
 - (IBAction) compositeSlotMaskPresentAction:(id) sender
@@ -1016,7 +1018,19 @@ static NSDictionary* xl3Ops;
 	for (id key in fecs) {
 		msk |= 1 << [key stationNumber];
 	}
-	[model setSlotMask:msk];
+    
+    [self setSlotMaskToLoad:msk];
+	//[model setSlotMask:msk];
+}
+
+- (void) setSlotMaskToLoad:(unsigned long)mask
+{
+	int i;
+	for(i=0; i<16; i++){
+		[[compositeSlotMaskMatrixToLoad cellWithTag:i] setIntValue:(mask & 1UL << i)];
+	}
+	[compositeSlotMaskMatrixToLoad setIntValue:mask];
+    
 }
 
 - (IBAction) compositeDeselectAction:(id) sender
