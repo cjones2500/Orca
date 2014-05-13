@@ -1535,6 +1535,34 @@ void SwapLongBlock(void* p, int32_t n)
 	//[[self xl1] executeCommandList:aList];		
 }
 
+//this should apply a trigger mask
+- (void) applyTriggerMask
+{
+    unsigned short slot;
+    unsigned short ch;
+    
+    //config bundles
+    for (slot=0; slot<16; slot++) {
+        memset(&hw_bundle[slot], 0, sizeof(mb_t));
+        [self synthesizeFECIntoBundle:&hw_bundle[slot] forSlot:slot];
+        memcpy(&ui_bundle[slot], &hw_bundle[slot], sizeof(mb_t));
+    }
+    
+    //apply trigger mask
+    if ([self isTriggerON]) {
+        [self setTriggerStatus:@"ON"];
+    }
+    else {
+        for (slot=0; slot<16; slot++) {
+            for (ch=0; ch<32; ch++) {
+                ui_bundle[slot].tr100.tdelay[ch] &= ~0x40U;
+                ui_bundle[slot].tr20.twidth[ch] &= ~0x20U;
+            }
+        }
+        [self setTriggerStatus:@"OFF"];
+    }
+}
+
 - (void) initCrateRegistersOnly
 {
     if (![[self xl3Link] isConnected]) {
