@@ -3116,6 +3116,12 @@
 		DB704A1318EBA4E100839B42 /* ELLIEModel.h in Headers */ = {isa = PBXBuildFile; fileRef = DB704A1118EBA4E100839B42 /* ELLIEModel.h */; };
 		DB704A1418EBA4E100839B42 /* ELLIEModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB704A1218EBA4E100839B42 /* ELLIEModel.m */; };
 		DB704A1618EBA61E00839B42 /* ellie.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB704A1518EBA61E00839B42 /* ellie.xib */; };
+		DB71E6FD1982EB0E00E2323B /* ORPanicButtonController.h in Headers */ = {isa = PBXBuildFile; fileRef = DB71E6FB1982EB0E00E2323B /* ORPanicButtonController.h */; };
+		DB71E6FE1982EB0E00E2323B /* ORPanicButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6FC1982EB0E00E2323B /* ORPanicButtonController.m */; };
+		DB71E7011982EB3100E2323B /* ORPanicButtonModel.h in Headers */ = {isa = PBXBuildFile; fileRef = DB71E6FF1982EB3100E2323B /* ORPanicButtonModel.h */; };
+		DB71E7021982EB3100E2323B /* ORPanicButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB71E7001982EB3100E2323B /* ORPanicButtonModel.m */; };
+		DB71E7041982EB4100E2323B /* panic.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB71E7031982EB4100E2323B /* panic.xib */; };
+		DB71E7061982EDFB00E2323B /* panic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DB71E7051982EDFB00E2323B /* panic.jpeg */; };
 		DBEC755518EB9E9B0077D493 /* ellie.gif in Resources */ = {isa = PBXBuildFile; fileRef = DBEC755418EB9E9B0077D493 /* ellie.gif */; };
 		EF37879212DFFF81003C814E /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF37879112DFFF81003C814E /* YAJL.framework */; };
 		EF3787A012DFFF90003C814E /* YAJL.framework in Frameworks_Copy */ = {isa = PBXBuildFile; fileRef = EF37879112DFFF81003C814E /* YAJL.framework */; };
@@ -6389,6 +6395,12 @@
 		DB704A1118EBA4E100839B42 /* ELLIEModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELLIEModel.h; sourceTree = "<group>"; };
 		DB704A1218EBA4E100839B42 /* ELLIEModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELLIEModel.m; sourceTree = "<group>"; };
 		DB704A1518EBA61E00839B42 /* ellie.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ellie.xib; sourceTree = "<group>"; };
+		DB71E6FB1982EB0E00E2323B /* ORPanicButtonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanicButtonController.h; sourceTree = "<group>"; };
+		DB71E6FC1982EB0E00E2323B /* ORPanicButtonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanicButtonController.m; sourceTree = "<group>"; };
+		DB71E6FF1982EB3100E2323B /* ORPanicButtonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORPanicButtonModel.h; sourceTree = "<group>"; };
+		DB71E7001982EB3100E2323B /* ORPanicButtonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORPanicButtonModel.m; sourceTree = "<group>"; };
+		DB71E7031982EB4100E2323B /* panic.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = panic.xib; sourceTree = "<group>"; };
+		DB71E7051982EDFB00E2323B /* panic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = panic.jpeg; sourceTree = "<group>"; };
 		DBEC755418EB9E9B0077D493 /* ellie.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ellie.gif; sourceTree = "<group>"; };
 		EF37879112DFFF81003C814E /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Frameworks/YAJL.framework; sourceTree = "<group>"; };
 		EF69C430116E5DC3008ABADC /* ORSNOCrateReadout.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ORSNOCrateReadout.cc; sourceTree = "<group>"; };
@@ -10421,6 +10433,7 @@
 		8499FE810DC8E86800E82DB4 /* SNO+ */ = {
 			isa = PBXGroup;
 			children = (
+				DB71E6FA1982EA9300E2323B /* ORPanicButton */,
 				DBEC755318EB9E9B0077D493 /* ELLIE */,
 				8499FF8E0DC9090400E82DB4 /* SNO Base Classes */,
 				8499FE820DC8E9B700E82DB4 /* SNOCrate */,
@@ -13097,6 +13110,19 @@
 			path = "Source/Objects/Misc Objects/ANSIEscapeHelper";
 			sourceTree = SOURCE_ROOT;
 		};
+		DB71E6FA1982EA9300E2323B /* ORPanicButton */ = {
+			isa = PBXGroup;
+			children = (
+				DB71E6FB1982EB0E00E2323B /* ORPanicButtonController.h */,
+				DB71E6FC1982EB0E00E2323B /* ORPanicButtonController.m */,
+				DB71E7051982EDFB00E2323B /* panic.jpeg */,
+				DB71E6FF1982EB3100E2323B /* ORPanicButtonModel.h */,
+				DB71E7001982EB3100E2323B /* ORPanicButtonModel.m */,
+				DB71E7031982EB4100E2323B /* panic.xib */,
+			);
+			path = ORPanicButton;
+			sourceTree = "<group>";
+		};
 		DBEC755318EB9E9B0077D493 /* ELLIE */ = {
 			isa = PBXGroup;
 			children = (
@@ -14716,6 +14742,8 @@
 				84E00577186637F9002E38F7 /* ORFileGetterOp.h in Headers */,
 				DB704A0F18EBA4D100839B42 /* ELLIEController.h in Headers */,
 				DB704A1318EBA4E100839B42 /* ELLIEModel.h in Headers */,
+				DB71E6FD1982EB0E00E2323B /* ORPanicButtonController.h in Headers */,
+				DB71E7011982EB3100E2323B /* ORPanicButtonModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15653,6 +15681,8 @@
 				844CBDD11866010F0012AA3B /* scpExpectGetScript in Resources */,
 				DBEC755518EB9E9B0077D493 /* ellie.gif in Resources */,
 				DB704A1618EBA61E00839B42 /* ellie.xib in Resources */,
+				DB71E7041982EB4100E2323B /* panic.xib in Resources */,
+				DB71E7061982EDFB00E2323B /* panic.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -16706,6 +16736,8 @@
 				84E00578186637F9002E38F7 /* ORFileGetterOp.m in Sources */,
 				DB704A1018EBA4D100839B42 /* ELLIEController.m in Sources */,
 				DB704A1418EBA4E100839B42 /* ELLIEModel.m in Sources */,
+				DB71E6FE1982EB0E00E2323B /* ORPanicButtonController.m in Sources */,
+				DB71E7021982EB3100E2323B /* ORPanicButtonModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
