@@ -966,7 +966,6 @@
 												<int key="NSvFlags">256</int>
 												<string key="NSFrame">{{10, 6}, {795, 257}}</string>
 												<reference key="NSSuperview" ref="18002578"/>
-												<reference key="NSNextKeyView" ref="17684287"/>
 												<array class="NSMutableArray" key="NSTabViewItems">
 													<object class="NSTabViewItem" id="959443513">
 														<object class="NSView" key="NSView" id="919052917">
@@ -2580,7 +2579,6 @@
 																	<int key="NSvFlags">268</int>
 																	<string key="NSFrame">{{694, 47}, {78, 150}}</string>
 																	<reference key="NSSuperview" ref="17684287"/>
-																	<reference key="NSNextKeyView"/>
 																	<bool key="NSEnabled">YES</bool>
 																	<object class="NSButtonCell" key="NSCell" id="447480734">
 																		<int key="NSCellFlags">67108864</int>
@@ -9100,7 +9098,7 @@ ZSBjb250cm9sbGVyLg</string>
 																	<int key="NSvFlags">268</int>
 																	<string key="NSFrame">{{218, 34}, {94, 17}}</string>
 																	<reference key="NSSuperview" ref="564808900"/>
-																	<reference key="NSNextKeyView" ref="378527024"/>
+																	<reference key="NSNextKeyView" ref="995806011"/>
 																	<bool key="NSEnabled">YES</bool>
 																	<object class="NSTextFieldCell" key="NSCell" id="3531625">
 																		<int key="NSCellFlags">67108928</int>
@@ -9504,6 +9502,36 @@ ZSBjb250cm9sbGVyLg</string>
 																	</object>
 																	<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 																</object>
+																<object class="NSButton" id="995806011">
+																	<reference key="NSNextResponder" ref="564808900"/>
+																	<int key="NSvFlags">268</int>
+																	<string key="NSFrame">{{304, 11}, {95, 71}}</string>
+																	<reference key="NSSuperview" ref="564808900"/>
+																	<reference key="NSNextKeyView" ref="378527024"/>
+																	<bool key="NSEnabled">YES</bool>
+																	<object class="NSButtonCell" key="NSCell" id="518656877">
+																		<int key="NSCellFlags">67108864</int>
+																		<int key="NSCellFlags2">134217728</int>
+																		<string key="NSContents"/>
+																		<object class="NSFont" key="NSSupport">
+																			<string key="NSName">LucidaGrande</string>
+																			<double key="NSSize">10</double>
+																			<int key="NSfFlags">1044</int>
+																		</object>
+																		<reference key="NSControlView" ref="995806011"/>
+																		<int key="NSButtonFlags">-2046017536</int>
+																		<int key="NSButtonFlags2">2</int>
+																		<object class="NSCustomResource" key="NSNormalImage">
+																			<string key="NSClassName">NSImage</string>
+																			<string key="NSResourceName">panic</string>
+																		</object>
+																		<string key="NSAlternateContents"/>
+																		<string key="NSKeyEquivalent"/>
+																		<int key="NSPeriodicDelay">400</int>
+																		<int key="NSPeriodicInterval">75</int>
+																	</object>
+																	<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+																</object>
 															</array>
 															<string key="NSFrame">{{10, 7}, {817, 209}}</string>
 															<reference key="NSSuperview" ref="249636675"/>
@@ -9588,7 +9616,7 @@ ZSBjb250cm9sbGVyLg</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="913918342"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 900}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMinSize">{213, 129}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -14514,6 +14542,7 @@ ZSBjb250cm9sbGVyLg</string>
 							<reference ref="163376883"/>
 							<reference ref="203318388"/>
 							<reference ref="897929019"/>
+							<reference ref="995806011"/>
 						</array>
 						<reference key="parent" ref="690175184"/>
 					</object>
@@ -14753,6 +14782,19 @@ ZSBjb250cm9sbGVyLg</string>
 						<string key="id">qci-Kf-jJh</string>
 						<reference key="object" ref="795607420"/>
 						<reference key="parent" ref="897929019"/>
+					</object>
+					<object class="IBObjectRecord">
+						<string key="id">HYY-xb-LQg</string>
+						<reference key="object" ref="995806011"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="518656877"/>
+						</array>
+						<reference key="parent" ref="564808900"/>
+					</object>
+					<object class="IBObjectRecord">
+						<string key="id">c2V-mG-a94</string>
+						<reference key="object" ref="518656877"/>
+						<reference key="parent" ref="995806011"/>
 					</object>
 				</array>
 			</object>
@@ -19050,6 +19092,18 @@ ZSBjb250cm9sbGVyLg</string>
 				<string key="EDt-3b-F2P.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<reference key="EDt-3b-F2P.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="EDt-3b-F2P.showNotes"/>
+				<string key="HYY-xb-LQg.CustomClassName">ObjectFactory</string>
+				<object class="NSMutableDictionary" key="HYY-xb-LQg.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">ToolTip</string>
+					<object class="IBToolTipAttribute" key="NS.object.0">
+						<string key="name">ToolTip</string>
+						<reference key="object" ref="995806011"/>
+						<string key="toolTip">ORPanicButtonModel</string>
+					</object>
+				</object>
+				<string key="HYY-xb-LQg.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<reference key="HYY-xb-LQg.IBUserGuides" ref="0"/>
+				<boolean value="NO" key="HYY-xb-LQg.showNotes"/>
 				<string key="O0d-G0-T1U.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="NO" key="O0d-G0-T1U.showNotes"/>
 				<string key="TnM-iL-ND2.CustomClassName">ObjectFactory</string>
@@ -19064,6 +19118,16 @@ ZSBjb250cm9sbGVyLg</string>
 				<string key="TnM-iL-ND2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<reference key="TnM-iL-ND2.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="TnM-iL-ND2.showNotes"/>
+				<object class="NSMutableDictionary" key="c2V-mG-a94.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">ToolTip</string>
+					<object class="IBToolTipAttribute" key="NS.object.0">
+						<string key="name">ToolTip</string>
+						<reference key="object" ref="518656877"/>
+						<string key="toolTip">ORPanicButtonModel</string>
+					</object>
+				</object>
+				<string key="c2V-mG-a94.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<boolean value="NO" key="c2V-mG-a94.showNotes"/>
 				<string key="d6s-CD-4n1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="NO" key="d6s-CD-4n1.showNotes"/>
 				<string key="meR-3w-ssb.CustomClassName">ObjectFactory</string>
@@ -19379,6 +19443,7 @@ ZSBjb250cm9sbGVyLg</string>
 			<string key="monspectrometer">{79.578947368421055, 40.872180451127818}</string>
 			<string key="nEDMCoil">{150, 136}</string>
 			<string key="nTPC">{100, 84}</string>
+			<string key="panic">{225, 224}</string>
 			<string key="prespectrometer">{72, 48}</string>
 			<string key="rangeTimer">{67, 66}</string>
 		</dictionary>
